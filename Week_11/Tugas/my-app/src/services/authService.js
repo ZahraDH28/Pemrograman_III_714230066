@@ -1,7 +1,7 @@
 import axios from "axios";
 
-const LOGIN_URL = "http://127.0.0.1:6969/login";
-const REGISTER_URL = "http://127.0.0.1:6969/register"; // pastikan endpoint ini tersedia di backend
+const LOGIN_URL = "praktikumbackend-production.up.railway.app/login";
+const REGISTER_URL = "http://127.0.0.1:8088//register"; // pastikan endpoint ini tersedia di backend
 
 export const login = async (username, password) => {
   const response = await axios.post(LOGIN_URL, { username, password });

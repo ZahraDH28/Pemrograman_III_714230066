@@ -16,22 +16,27 @@ import (
 )
 
 func init() {
-	err := godotenv.Load()
-	if err != nil {
-		fmt.Printf("failed to load env: %s", err)
+
+	if _, err := os.Stat(".env"); err == nil {
+		err := godotenv.Load()
+		if err != nil {
+			fmt.Println("Gagal Memuat File .env")
+
+		} else {
+			fmt.Println("file env dimuat (local)")
+		}
 	}
 }
+
 // @title SWAGGER PEMROGRAMAN III
 // @version 1.0
 // @description Swagger Untuk Backend menggunakan golang dan framework Fiber
 
 // @contact.name API Support
-// @contact.url https://github.com/rrq-dev
-// @contact.email raihanaditya1506@gmail
-
-// @host localhost:6969
+// @contact.url https://github.com/ZahraDH28
+// @contact.email diahandokozahra29@gmail.com
 // @BasePath /
-// @schemes http
+// @schemes http, https
 // @securityDefinitions.apikey BearerAuth
 // @in header
 // @name Authorization
@@ -42,7 +47,7 @@ func main() {
 	app.Use(logger.New())
 	app.Use(cors.New(cors.Config{
 		AllowOrigins:     strings.Join(config.GetAllowedOrigins(), ","),
-		AllowHeaders:    "Origin, Content-Type, Accept, Authorization",
+		AllowHeaders:     "Origin, Content-Type, Accept, Authorization",
 		AllowCredentials: true,
 		AllowMethods:     "GET,POST,PUT,DELETE,OPTIONS",
 	}))
