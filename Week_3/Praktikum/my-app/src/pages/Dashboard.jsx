@@ -1,4 +1,4 @@
-import { TableWithStripedRows } from "../components/molecules/tableWithStripedRows";
+import { TableWithStripedRows } from "../components/molecules/TableWithStripedRows";
 
 export default function Dashboard() {
 return (
